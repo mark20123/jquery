@@ -22,9 +22,17 @@ Skills :
 
 
 <input type="checkbox" name="skills" value="C#" />C#
+
+
 <input type="checkbox" name="skills" value="VB" />VB
 <br /><br />
-<input id="btnSubmit" type="submit" value="submit" />
+Preferred Cities :
+<input type="checkbox" name="cities" value="New York" />New York
+<input type="checkbox" name="cities" value="New Delhi" />New Delhi
+<input type="checkbox" name="cities" value="London" />London
+<br /><br />
+<input id="btnGetSelectedSkills" type="submit" value="Get Selected Skills" />
+<input id="btnGetSelectedCities" type="submit" value="Get Selected Cities" />
 <br /><br />
 <div id="divResult">
 </div>
@@ -32,8 +40,16 @@ Skills :
 <script type="text/javascript">
 
 $(document).ready(function () {
-    $('#btnSubmit').click(function () {
-        var result = $('input[type="checkbox"]:checked');
+    $('#btnGetSelectedSkills').click(function () {
+        getSelectedCheckBoxes('skills');
+    });
+
+    $('#btnGetSelectedCities').click(function () {
+        getSelectedCheckBoxes('cities');
+    });
+
+    var getSelectedCheckBoxes = function (groupName) {
+        var result = $('input[name="' + groupName + '"]:checked');
         if (result.length > 0) {
             var resultString = result.length + " checkboxe(s) checked<br/>";
             result.each(function () {
@@ -44,7 +60,7 @@ $(document).ready(function () {
         else {
             $('#divResult').html("No checkbox checked");
         }
-    });
+    };
 });
 
 </script>
