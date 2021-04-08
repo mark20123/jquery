@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <!-- 1. Подключим библиотеку jQuery (без нее jQuery UI не будет работать) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script  type='text/javascript' src="node_modules/jquery/dist/jquery.js"></script>
     <!-- 2. Подключим jQuery UI -->
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet"
           type="text/css"/>
@@ -28,13 +28,10 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-
-      let result = '';
-      $('li').each(function (index, element) {
-          result += '<br>' + $(this).text();
-      })
-        let divElement = $('#divResult');
-        divElement.html(result);
+       $('li').css('color', 'red');
+       $('li').slideUp(1000);
+       $('li').slideDown(1000);
+       $('li').attr('title', 'dsdsd');
     });
 
 </script>
