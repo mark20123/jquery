@@ -28,7 +28,7 @@
 
     $(document).ready(function () {
       $('li').each(function (index, element) {
-          console.log(index + ":" + $(this).text());
+          console.log(index + ":" + this.innerText);
       })
     });
 
