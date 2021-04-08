@@ -28,8 +28,9 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
+      let divElement = $('#divResult');
       $('li').each(function (index, element) {
-        $('#divResult').html($('#divResult').html() + "<br />" + element.innerText)
+          divElement.html(divElement.html() + "<br />" + element.innerText)
       })
     });
 
