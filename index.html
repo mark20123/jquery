@@ -28,12 +28,13 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-      let divElement = $('#divResult');
+
       let result = '';
       $('li').each(function (index, element) {
-          result += '<br/>' + element.innerText
+          result += '<br>' + $(this).text();
       })
-        divElement.text(result)
+        let divElement = $('#divResult');
+        divElement.html(result);
     });
 
 </script>
