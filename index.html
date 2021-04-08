@@ -23,12 +23,13 @@
     <li>Canada</li>
     <li>Australia</li>
 </ul>
+    <div id="divResult"></div>
 
 <script type="text/javascript">
 
     $(document).ready(function () {
       $('li').each(function (index, element) {
-        $(this).css('color', 'red')
+        $('#divResult').html($('#divResult').html() + "<br />" + element.innerText)
       })
     });
 
