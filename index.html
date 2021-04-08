@@ -21,15 +21,21 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        let employeeJSON = {
-            "firstName": "Todd",
-            "lastName": "Grover",
-            "gender": "Male",
-            "salary": 50000
-        }
-        let result = '';
+        let employeesJSON = [
+            {
+                "firstName": "Todd",
+                "lastName": "Grover",
+                "gender": "Male",
+                "salary": 50000
+            },
+            {
+                "firstName": "Sara",
+                "lastName": "Baker",
+                "gender": "Female",
+                "salary": 40000
+            }];
 
-        result += 'First Name = ' + employeeJSON.firstName + '<br/>';
+        var result = employeesJSON[0].lastName;
 
         $('#divResult').html(result);
     });
