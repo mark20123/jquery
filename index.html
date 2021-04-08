@@ -16,24 +16,22 @@
 </head>
 <body>
 
-<ul>
-    <li>US</li>
-    <li>India</li>
-    <li>UK</li>
-    <li>Canada</li>
-    <li>Australia</li>
-</ul>
     <div id="divResult"></div>
 
 <script type="text/javascript">
 
     $(document).ready(function () {
-       $('li')
-           .css('color', 'red')
-           .slideUp(1000)
-           .slideDown(1000)
-           .text()
-           .attr('title', 'dsdsd');
+        let employeeJSON = {
+            "firstName": "Todd",
+            "lastName": "Grover",
+            "gender": "Male",
+            "salary": 50000
+        }
+        let result = '';
+
+        result += 'First Name = ' + employeeJSON.firstName + '<br/>';
+
+        $('#divResult').html(result);
     });
 
 </script>
