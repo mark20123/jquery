@@ -21,21 +21,22 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        let employeesJSON = [
-            {
+        let employeesJSON = {
+            "Todd": {
                 "firstName": "Todd",
                 "lastName": "Grover",
                 "gender": "Male",
                 "salary": 50000
             },
-            {
+            "Sara": {
                 "firstName": "Sara",
                 "lastName": "Baker",
                 "gender": "Female",
                 "salary": 40000
-            }];
+            }
+        };
 
-        var result = employeesJSON[0].lastName;
+        var result = employeesJSON.Todd.gender
 
         $('#divResult').html(result);
     });
