@@ -29,9 +29,11 @@
 
     $(document).ready(function () {
       let divElement = $('#divResult');
+      let result = '';
       $('li').each(function (index, element) {
-          divElement.html(divElement.html() + "<br />" + element.innerText)
+          result += '<br/>' + element.innerText
       })
+        divElement.text(result)
     });
 
 </script>
