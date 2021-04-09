@@ -26,6 +26,11 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
+        $('div').each(function(i,el){
+          $(this).attr('title','Div ' + (i + 1))
+        })
+
+
         $('div').each(function () {
             alert($(this).attr('title'));
         });
