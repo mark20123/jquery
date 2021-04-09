@@ -16,23 +16,19 @@
 </head>
 <body>
 
-    <div id="divResult"></div>
+<div id="div1" title="My DIV1">
+    DIV 1
+</div>
+<div id="div2" title="My DIV2">
+    DIV 2
+</div>
 
 <script type="text/javascript">
 
     $(document).ready(function () {
-        let jsonString = '[{"firstName":"Todd","lastName":"Grover","gender":"Male","salary":50000},{"firstName":"Sara","lastName":"Baker","gender":"Female","salary":40000}]'
-        let result = JSON.parse(jsonString);
-
-        let result1 ='';
-        $.each(result, function (i,item) {
-
-            result1 += 'First name is : ' + item.firstName + '<br />';
-            result1 += 'last name is : ' + item.lastname + '<br />';
-            result1 += 'gender is : ' + item.gender + '<br />';
-            result1 += 'Salary is : ' + item.salary + '<br />';
-        })
-        $('#divResult').html(result1)
+        $('div').each(function () {
+            alert($(this).attr('title'));
+        });
     });
 
 </script>
