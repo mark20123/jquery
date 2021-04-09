@@ -37,7 +37,7 @@
 
         var result = '';
         $('div').each(function(i, el){
-            result += ' Title = ' + el.title + ','
+            result += ' Title = ' + $(this).attr('title') + ','
         })
         console.log(result);
     });
