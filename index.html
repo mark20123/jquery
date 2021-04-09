@@ -21,24 +21,24 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        let employeesJSON = {
-            "Todd": {
+        let employeesJSON = [
+            {
                 "firstName": "Todd",
                 "lastName": "Grover",
                 "gender": "Male",
                 "salary": 50000
             },
-            "Sara": {
+            {
                 "firstName": "Sara",
                 "lastName": "Baker",
                 "gender": "Female",
                 "salary": 40000
             }
-        };
+            ];
 
-        var result = employeesJSON.Todd.gender
+          let jsonObject = JSON.stringify(employeesJSON);
 
-        $('#divResult').html(result);
+        $('#divResult').html(jsonObject);
     });
 
 </script>
