@@ -14,26 +14,26 @@
 
     </style>
 </head>
-<body>
-
 <div id="div1" title="My DIV1">
     DIV 1
 </div>
+<br/>
 <div id="div2" title="My DIV2">
     DIV 2
 </div>
+<br/>
+<span id="resultSpan">
+    </span>
 
 <script type="text/javascript">
 
     $(document).ready(function () {
-        $('div').each(function(i,el){
-          $(this).attr('title','Div ' + (i + 1))
-        })
-
-
-        $('div').each(function () {
-            alert($(this).attr('title'));
-        });
+        var config = {
+            'title': 'New Div Title',
+            'style': 'border:3px solid red;',
+            'name': 'My Div'
+        };
+        $('div').attr(config);
     });
 
 </script>
