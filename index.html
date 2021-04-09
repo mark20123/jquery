@@ -34,6 +34,12 @@
             'name': 'My Div'
         };
         $('div').attr(config);
+
+        var result = '';
+        $('div').each(function(i, el){
+            result += ' Title = ' + el.title + ','
+        })
+        console.log(result);
     });
 
 </script>
