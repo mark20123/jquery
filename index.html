@@ -37,9 +37,12 @@
 
         var result = '';
         $('div').each(function(i, el){
-            result += ' Title = ' + $(this).attr('title') + ','
+            result += ' Title = ' + $(this).attr('title') + '<br />';
+            result += ' Style = ' + $(this).attr('style') + '<br />';
+            result += ' name = ' + $(this).attr('name') + '<br /><br />';
         })
         console.log(result);
+        $('#resultSpan').html(result)
     });
 
 </script>
