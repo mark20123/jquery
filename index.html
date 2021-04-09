@@ -21,24 +21,18 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        let employeesJSON = [
-            {
-                "firstName": "Todd",
-                "lastName": "Grover",
-                "gender": "Male",
-                "salary": 50000
-            },
-            {
-                "firstName": "Sara",
-                "lastName": "Baker",
-                "gender": "Female",
-                "salary": 40000
-            }
-            ];
+        let jsonString = '[{"firstName":"Todd","lastName":"Grover","gender":"Male","salary":50000},{"firstName":"Sara","lastName":"Baker","gender":"Female","salary":40000}]'
+        let result = JSON.parse(jsonString);
 
-          let jsonObject = JSON.stringify(employeesJSON);
+        let result1 ='';
+        $.each(result, function (i,item) {
 
-        $('#divResult').html(jsonObject);
+            result1 += 'First name is : ' + item.firstName + '<br />';
+            result1 += 'last name is : ' + item.lastname + '<br />';
+            result1 += 'gender is : ' + item.gender + '<br />';
+            result1 += 'Salary is : ' + item.salary + '<br />';
+        })
+        $('#divResult').html(result1)
     });
 
 </script>
