@@ -11,38 +11,37 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
     <style>
-
+        .containerDiv {
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            margin: 5px;
+        }
     </style>
 </head>
-<div id="div1" title="My DIV1">
-    DIV 1
-</div>
-<br/>
-<div id="div2" title="My DIV2">
-    DIV 2
-</div>
-<br/>
-<span id="resultSpan">
-    </span>
+<body>
+
+    <div id="div1">
+        DIV 1
+    </div>
+    <div id="div2">
+        DIV 2
+    </div>
+    <div id="div3">
+        DIV 3
+    </div>
 
 <script type="text/javascript">
 
     $(document).ready(function () {
-        var config = {
-            'title': 'New Div Title',
-            'style': 'border:3px solid red;',
-            'name': 'My Div'
-        };
-        $('div').attr(config);
-
-        var result = '';
-        $('div').each(function(i, el){
-            result += ' Title = ' + $(this).attr('title') + '<br />';
-            result += ' Style = ' + $(this).attr('style') + '<br />';
-            result += ' name = ' + $(this).attr('name') + '<br /><br />';
+     $('div').wrap('<div class="containerDiv"></div>')
+        let string = 'a';
+        $('.containerDiv').each(function (i, element) {
+            i += 1;
+            string += string;
+            element.innerText = string + i;
+            console.log(i, element)
         })
-        console.log(result);
-        $('#resultSpan').html(result)
     });
 
 </script>
