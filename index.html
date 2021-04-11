@@ -21,20 +21,25 @@
 </head>
 <body>
 
-    <div id="div1">
-        DIV 1
-    </div>
-    <div id="div2">
-        DIV 2
-    </div>
-    <div id="div3">
-        DIV 3
-    </div>
+<div id="div1">jQuery</div>
+<div id="div2">C#</div>
+<div id="div3">ASP.NET</div>
+
+<span style="border: 1px solid red; cursor: pointer" class="click">Click</span>
 
 <script type="text/javascript">
 
     $(document).ready(function () {
-     $('div').wrapInner('<div class="containerDiv"></div>');
+
+    let $div = $('div');
+    let $span = $('span');
+
+    $span.on('click', func);
+
+    function func(){
+        $div.append('<b> Tutorial <b/>')
+    }
+
 
     });
 
