@@ -33,11 +33,12 @@
 
     let $div = $('div');
     let $span = $('span');
+    let $content = $('<b> Tutorial <b/>');
 
     $span.on('click', func);
 
     function func(){
-        $div.prepend('<b> Tutorial <b/>')
+        $content.prependTo($div);
     }
 
 
