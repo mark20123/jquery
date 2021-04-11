@@ -34,14 +34,10 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-     $('div').wrap('<div class="containerDiv"></div>')
-        let string = 'a';
-        $('.containerDiv').each(function (i, element) {
-            i += 1;
-            string += string;
-            element.innerText = string + i;
-            console.log(i, element)
-        })
+     $('div').wrap('<div class="containerDiv"></div>');
+
+     $('div').unwrap();
+
     });
 
 </script>
