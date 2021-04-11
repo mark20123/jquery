@@ -21,6 +21,8 @@
 </head>
 <body>
 
+<span id="mySpan"> Programming</span>
+<span id="mySpan1"> Programming1</span>
 <div id="div1">jQuery</div>
 <div id="div2">C#</div>
 <div id="div3">ASP.NET</div>
@@ -31,16 +33,9 @@
 
     $(document).ready(function () {
 
-    let $div = $('div');
-    let $span = $('span');
-    let $content = $('<b> Tutorial <b/>');
+        $('div').append($('#mySpan'));
 
-    $span.on('click', func);
-
-    function func(){
-        $content.prependTo($div);
-    }
-
+        $('div').prepend($('#mySpan1'));
 
     });
 
