@@ -35,9 +35,9 @@
 
     $(document).ready(function () {
      $('div').wrap('<div class="containerDiv"></div>');
-
-     $('div').unwrap();
-
+        setTimeout(function () {
+            $('div').unwrap();
+        },3000)
     });
 
 </script>
