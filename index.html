@@ -30,12 +30,11 @@
 
     $(document).ready(function () {
 
-        let result = [];
 
-        $('li').each(function (index, element) {
-            result.push($(element).text());
-            console.log(result)
-        })
+        console.log($('li').map(function (index, element) {
+            return $(element).text();
+        }).get())
+
 
     });
 
