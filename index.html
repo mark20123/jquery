@@ -24,27 +24,22 @@
     <li>Canada</li>
     <li>Australia</li>
 </ul>
-<div id="resultDiv"></div>
 
 
 <script type="text/javascript">
 
     $(document).ready(function () {
-        let intArray = [100,200,300,400,500];
-        var obj = {
-            "flammable": "inflammable",
-            "duh": "no duh"
-        };
-        let result = '';
 
-        $.each(obj, function (i,e) {
-            console.log(i +' : '+ e)
+        let result = [];
+
+        $('li').each(function (index, element) {
+            result.push($(element).text());
+            console.log(result)
         })
-
-        $('#resultDiv').html(result);
 
     });
 
 </script>
+
 </body>
 </html>
