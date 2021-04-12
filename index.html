@@ -11,60 +11,30 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
     <style>
-        .boldClass {
-            font-weight: bold;
-        }
 
-        .italicsClass {
-            font-style: italic;
-        }
-
-        .colorClass {
-            color: red;
-        }
     </style>
 </head>
 <body>
 
 
-<table>
-    <tr>
-        <td>First Name</td>
-        <td><input type="text" /></td>
-    </tr>
-    <tr>
-        <td>Last Name</td>
-        <td><input type="text" /></td>
-    </tr>
-    <tr>
-        <td>Gender</td>
-        <td>
-            <select>
-                <option value="select">Please Select</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select>
-        </td>
-    </tr>
-    <tr>
-        <td>Email</td>
-        <td><input type="text" /></td>
-    </tr>
-</table>
+<ul>
+    <li>US</li>
+    <li>India</li>
+    <li>UK</li>
+    <li>Canada</li>
+    <li>Australia</li>
+</ul>
+<div id="resultDiv"></div>
 
 
 <script type="text/javascript">
 
     $(document).ready(function () {
-
-     $('input[type="text"]').each(function (i, el) {
-        $(this).focus(function () {
-            $(this).addClass('colorClass')
+        let result = '';
+        $('li').each(function (index, element) {
+            result += `Index : ${index} , inner text : ${element.innerText} ${'<br>'}`
         })
-         $(this).blur(function () {
-             $(this).removeClass('colorClass')
-         })
-     })
+        $('#resultDiv').html(result);
 
     });
 
