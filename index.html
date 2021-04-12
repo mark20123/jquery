@@ -23,20 +23,22 @@
 
         let intArray = [1, 2, 3, 4, 5];
 
-        function functionA(index, element) {
-            return element * 5;
-        }
+        $.each(intArray, function (index, element) {
+            if (element == 3)
+                return false;
 
-        function functionB(element, index) {
-            return element * 5;
-        }
+            document.write(element + ',');
+        });
 
-        let resultEach = $.each(intArray, functionA);
-        let resultMap = $.map(intArray, functionB);
+        document.write('<br/>');
 
-        document.write(`each = ${resultEach}`);
-        document.write('<br>');
-        document.write(`map = ${resultMap}`);
+        $.map(intArray, function (element, index) {
+            if (element == 3)
+                return false;
+
+            document.write(element + ',')
+        })
+
 
     });
 
