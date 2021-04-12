@@ -30,12 +30,14 @@
 
     $(document).ready(function () {
 
+        let result = '';
 
-        console.log($('li').map(function (index, element) {
-            return $(element).text();
-        }).get())
+        $('li').map(function (index, element) {
+            result += $(element).text() + '|'
+        })
 
-
+        result = result.substr(0, result.length -1)
+         alert(result)
     });
 
 </script>
