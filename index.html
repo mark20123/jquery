@@ -59,6 +59,16 @@
                    value="Remove All Classes" />
         </td>
     </tr>
+    <tr>
+        <td>
+            <input id="btn7" style="width:250px" type="button"
+                   value="Toggle Classes" />
+        </td>
+        <td>
+            <input id="btn8" style="width:250px" type="button"
+                   value="Remove All Classes" />
+        </td>
+    </tr>
 </table>
 
 
@@ -83,6 +93,9 @@
         });
         $('#btn6').click(function () {
             $('p').removeClass()
+        })
+        $('#btn7').click(function () {
+            $('p').toggleClass('colorClass boldClass italicsClass')
         })
     });
 
