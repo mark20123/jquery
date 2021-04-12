@@ -11,28 +11,67 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
     <style>
-        .containerDiv {
-            background-color: red;
-            color: white;
+        .boldClass {
             font-weight: bold;
-            margin: 5px;
+        }
+
+        .italicsClass {
+            font-style: italic;
+        }
+
+        .colorClass {
+            color: red;
         }
     </style>
 </head>
 <body>
 
 
-<span>Training Courses</span>
-<div>jQuery</div>
-<div>Cv#</div>
-<div>ASP.NET</div>
+<p>Pragim Technologies</p>
+<table>
+    <tr>
+        <td>
+            <input id="btn1" style="width:250px" type="button"
+                   value="Add Color Class" />
+        </td>
+        <td>
+            <input id="btn2" style="width:250px" type="button"
+                   value="Remove Color Class" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input id="btn3" style="width:250px" type="button"
+                   value="Add Color and Italics Classes" />
+        </td>
+        <td>
+            <input id="btn4" style="width:250px" type="button"
+                   value="Remove Color and Italics Classes" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input id="btn5" style="width:250px" type="button"
+                   value="Add Color, Italics & Bold Classes" />
+        </td>
+        <td>
+            <input id="btn6" style="width:250px" type="button"
+                   value="Remove All Classes" />
+        </td>
+    </tr>
+</table>
 
 
 <script type="text/javascript">
 
     $(document).ready(function () {
 
-    $('<h2> KY </h2>').insertBefore($('div'))
+        $('#btn1').click(function () {
+            $('p').addClass('colorClass')
+        });
+        $('#btn2').click(function () {
+            $('p').removeClass('colorClass')
+        })
 
     });
 
