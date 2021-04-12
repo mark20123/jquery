@@ -17,27 +17,27 @@
 <body>
 
 
-<ul>
-    <li>US</li>
-    <li>India</li>
-    <li>UK</li>
-    <li>Canada</li>
-    <li>Australia</li>
-</ul>
-
-
 <script type="text/javascript">
 
     $(document).ready(function () {
 
-        let result = '';
+        let intArray = [1, 2, 3, 4, 5];
 
-        $('li').map(function (index, element) {
-            result += $(element).text() + '|'
-        })
+        function functionA(index, element) {
+            return element * 5;
+        }
 
-        result = result.substr(0, result.length -1)
-         alert(result)
+        function functionB(element, index) {
+            return element * 5;
+        }
+
+        let resultEach = $.each(intArray, functionA);
+        let resultMap = $.map(intArray, functionB);
+
+        document.write(`each = ${resultEach}`);
+        document.write('<br>');
+        document.write(`map = ${resultMap}`);
+
     });
 
 </script>
