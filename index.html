@@ -30,10 +30,13 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
+        let intArray = [100,200,300,400,500];
         let result = '';
-        $('li').each(function (index, element) {
-            result += `Index : ${index} , inner text : ${element.innerText} ${'<br>'}`
+
+        $.each(intArray, function (i,e) {
+            console.log(i +' : '+ e)
         })
+
         $('#resultDiv').html(result);
 
     });
