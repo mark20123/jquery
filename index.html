@@ -105,14 +105,15 @@
 
     $(document).ready(function () {
      $('img[src="help.png"]').mouseover(function () {
-      let helpInconId = $(this).attr('id');
-      let divId = helpInconId.replace('img','div');
-      $('#' + divId).fadeIn(500);
+         $('#' + getDivId(this)).fadeIn(500);
      }).mouseout(function () {
-         let helpInconId = $(this).attr('id');
-         let divId = helpInconId.replace('img','div');
-         $('#' + divId).fadeOut(500);
+         $('#' + getDivId(this)).fadeOut(500);
      })
+
+        function getDivId(helpIcon) {
+            let helpInconId = $(helpIcon).attr('id');
+            return helpInconId.replace('img','div');
+        }
 
     });
 
