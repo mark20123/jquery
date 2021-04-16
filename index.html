@@ -104,10 +104,16 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-     $('#imgFirstNameHelp').mouseover(function () {
-         $('#divFirstNameHelp').fadeIn(500)
+     $('img[src="help.png"]').mouseover(function () {
+
+         $(this).parents('tr').find('div').attr('display','none').fadeIn(500, function () {
+             $(this).addClass('aaa');
+         });
+
      }).mouseout(function () {
-         $('#divFirstNameHelp').fadeOut(800)
+        $('.aaa').fadeOut(500, function () {
+            $(this).removeClass('aaa')
+        })
      })
 
     });
