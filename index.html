@@ -84,12 +84,17 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
+        let result = '';
+        $('input').change(function () {
 
-   $('#ddlCity').change(function () {
-       let selectedValue = $(this).val();
-        if(selectedValue === 'Select') selectedValue = 'Please select another state';
-       let divResult = $('#divResult').html(selectedValue);
-   });
+            if (result === '') {
+                result = $(this).val();
+            } else {
+                result += ', ' + result;
+            }
+
+            $('#divResult').html(result);
+        });
 
 
     });
