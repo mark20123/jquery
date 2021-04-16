@@ -105,15 +105,13 @@
 
     $(document).ready(function () {
      $('img[src="help.png"]').mouseover(function () {
-
-         $(this).parents('tr').find('div').attr('display','none').fadeIn(500, function () {
-             $(this).addClass('aaa');
-         });
-
+      let helpInconId = $(this).attr('id');
+      let divId = helpInconId.replace('img','div');
+      $('#' + divId).fadeIn(500);
      }).mouseout(function () {
-        $('.aaa').fadeOut(500, function () {
-            $(this).removeClass('aaa')
-        })
+         let helpInconId = $(this).attr('id');
+         let divId = helpInconId.replace('img','div');
+         $('#' + divId).fadeOut(500);
      })
 
     });
