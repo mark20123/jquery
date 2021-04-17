@@ -24,25 +24,40 @@
 <script type="text/javascript">
 
     function whichMouseButtonClicked(event) {
-            let whichButton;
-            if(event.which){
-                switch (event.which) {
-                   case 1:
-                       whichButton = 'Left Button is clicked';
-                       break;
-                   case 2:
-                       whichButton = 'Middle Button is clicked';
-                       break;
-                   case 3:
-                       whichButton = 'Right Button is clicked';
-                       break;
-                   default:
-                       whichButton = 'Not recognized Button is clicked';
-                       break;
-                }
+        let whichButton;
+        if (event.which) {
+            switch (event.which) {
+                case 1:
+                    whichButton = 'Left Button is clicked';
+                    break;
+                case 2:
+                    whichButton = 'Middle Button is clicked';
+                    break;
+                case 3:
+                    whichButton = 'Right Button is clicked';
+                    break;
+                default:
+                    whichButton = 'Not recognized Button is clicked';
+                    break;
+            }
+        } else {
+            switch (event.button) {
+                case 1:
+                    whichButton = "Left Button Clicked";
+                    break;
+                case 4:
+                    whichButton = "Middle Button Clicked";
+                    break;
+                case 2:
+                    whichButton = "Right Button Clicked";
+                    break;
+                default:
+                    whichButton = "Invalid Button Clicked";
+                    break;
             }
             document.querySelector('#divResult').innerHTML = whichButton;
         }
+    }
 
 </script>
 
