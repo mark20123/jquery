@@ -16,28 +16,33 @@
 </head>
 <body>
 
-<input id="btn" type="button" value="Click me"/><br/><br/>
+<input id="btn" type="button" value="Click Me"
+       onmouseup="whichMouseButtonClicked(event)"/>
+<br/><br/>
 <div id="divResult"></div>
 
 <script type="text/javascript">
 
-    $(document).ready(function () {
-        $('#btn').click(function (event) {
-            getEventDetails (event);
-        }).mouseout(function (event) {
-            getEventDetails (event);
-        })
-
-        function getEventDetails (event) {
-            let eventDetails = 'Event = ' + event.type + '<br/>' +
-                'X.position = ' + event.pageX + '<br/>' +
-                'Y.position = ' + event.pageY + '<br/>' +
-                'Target element = ' + event.target.type  + '<br/>' +
-                'Target element Tag name = ' + event.target.tagName;
-
-            $('#divResult').html(eventDetails);
+    function whichMouseButtonClicked(event) {
+            let whichButton;
+            if(event.which){
+                switch (event.which) {
+                   case 1:
+                       whichButton = 'Left Button is clicked';
+                       break;
+                   case 2:
+                       whichButton = 'Middle Button is clicked';
+                       break;
+                   case 3:
+                       whichButton = 'Right Button is clicked';
+                       break;
+                   default:
+                       whichButton = 'Not recognized Button is clicked';
+                       break;
+                }
+            }
+            document.querySelector('#divResult').innerHTML = whichButton;
         }
-    });
 
 </script>
 
