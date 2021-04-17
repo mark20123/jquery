@@ -23,13 +23,20 @@
 
     $(document).ready(function () {
         $('#btn').click(function (event) {
-          let eventDetails = 'Event = ' + event.type + '<br/>' +
-                             'X.position = ' + event.pageX + '<br/>' +
-                             'Y.position = ' + event.pageY + '<br/>' +
-                             'Target element = ' + event.target.type  + '<br/>' +
-                             'Target element Tag name = ' + event.target.tagName;
-            $('#divResult').html(eventDetails)
+            getEventDetails (event);
+        }).mouseout(function (event) {
+            getEventDetails (event);
         })
+
+        function getEventDetails (event) {
+            let eventDetails = 'Event = ' + event.type + '<br/>' +
+                'X.position = ' + event.pageX + '<br/>' +
+                'Y.position = ' + event.pageY + '<br/>' +
+                'Target element = ' + event.target.type  + '<br/>' +
+                'Target element Tag name = ' + event.target.tagName;
+
+            $('#divResult').html(eventDetails);
+        }
     });
 
 </script>
