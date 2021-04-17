@@ -22,20 +22,14 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        // $('#btn').click(function (event) {
-        //     console.log(event.button())
-        // })
-        $('#btn').mousedown(function(e) {
-            if (e.which === 3) {
-                console.log(3)
-            }
-            if (e.which === 1) {
-                console.log(1)
-            }
-            if (e.which === 2) {
-                console.log(2)
-            }
-        });
+        $('#btn').click(function (event) {
+          let eventDetails = 'Event = ' + event.type + '<br/>' +
+                             'X.position = ' + event.pageX + '<br/>' +
+                             'Y.position = ' + event.pageY + '<br/>' +
+                             'Target element = ' + event.target.type  + '<br/>' +
+                             'Target element Tag name = ' + event.target.tagName;
+            $('#divResult').html(eventDetails)
+        })
     });
 
 </script>
