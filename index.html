@@ -11,25 +11,48 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
     <style>
-
+        .ButtonStyle {
+            background-color: red;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+        }
     </style>
 </head>
 <body>
 
-<input id="btn" type="button" value="Click Me" />
+<input id="btnClickMe" type="button" value="Click Me" />
+<input id="btnEnableMouseOverEffect" type="button"
+       value="Enable Mouse Over Effect" />
+<input id="btnDisableMouseOverEffect" type="button"
+       value="Disable Mouse Over Effect" />
 <br /><br />
 <div id="divResult"></div>
+
 <script type="text/javascript">
 
     $(document).ready(function () {
-        $('#btn').mouseup(function (event) {
-            switch (event.which) {
-                case 1: whichButton = "Left Button Clicked"; break;
-                case 2: whichButton = "Middle Button Clicked"; break;
-                case 3: whichButton = "Right Button Clicked"; break;
-                default: whichButton = "Invalid Button Clicked"; break;
+        $('#btnClickMe').bind('click mouseover mouseout', function (event) {
+            if (event.type == 'click') {
+                $('#divResult').html('Button Clicked at '
+                    + 'X = ' + event.pageX + ' Y = ' + event.pageY);
             }
-            $('#divResult').html(whichButton);
+            else if (event.type == 'mouseover') {
+                $(this).addClass('ButtonStyle');
+            }
+            else {
+                $(this).removeClass('ButtonStyle');
+            }
+        });
+
+        $('#btnEnableMouseOverEffect').click(function () {
+            $('#btnClickMe').bind('mouseover', function () {
+                $(this).addClass('ButtonStyle');
+            });
+        });
+
+        $('#btnDisableMouseOverEffect').click(function () {
+            $('#btnClickMe').unbind('mouseover');
         });
     });
 
