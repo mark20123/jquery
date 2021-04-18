@@ -29,8 +29,7 @@
     $(document).ready(function () {
 
         $('#btnClickMe').on('click',{
-            firstName: 'Vasya',
-            lastName: 'Kylinyi'
+            firstName: 'Vasya'
         }, hello)
          function hello(event){
             alert('hello ' + event.data.firstName + (event.data.lastName != null ? ' ' + event.data.lastName : ' '))
