@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <!-- 1. Подключим библиотеку jQuery (без нее jQuery UI не будет работать) -->
-<!--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>-->
+    <!--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>-->
     <!-- 2. Подключим jQuery UI -->
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet"
           type="text/css"/>
@@ -16,25 +16,22 @@
 </head>
 <body>
 
-<p>Has an attached custom event.</p>
-<button>Trigger custom event</button>
-<span style="display:none;"></span>
+<input id="btnClickMe" type="button" value="Click Me"/>
+<input id="btnEnableMouseOverEffect" type="button"
+       value="Enable Mouse Over Effect"/>
+<input id="btnDisableMouseOverEffect" type="button"
+       value="Disable Mouse Over Effect"/>
+<br/><br/>
+<div id="divResult"></div>
 
 <script type="text/javascript">
 
     $(document).ready(function () {
 
-        $( "p" ).on( "myCustomEvent", function( event, myName ) {
-            $( this ).text( myName + ", hi there!" );
-            $( "span" )
-                .stop()
-                .css( "opacity", 1 )
-                .text( "myName = " + myName )
-                .fadeIn( 30 )
-                .fadeOut( 1000 );
-        });
-        $("p").on('click', function () {
-            $(this).trigger('myCustomEvent', ['Jonh'])
+        $('#btnClickMe').on({
+            click: function (event) {
+                $('#divResult').html('Button clicked at X = ' + event.pageX + ' Y = ' + event.pageY);
+            }
         })
 
     });
