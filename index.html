@@ -28,9 +28,12 @@
 
     $(document).ready(function () {
 
-        $('#btnClickMe').on('click', hello)
-         function hello(){
-            alert('hello')
+        $('#btnClickMe').on('click',{
+            firstName: 'Vasya',
+            lastName: 'Kylinyi'
+        }, hello)
+         function hello(event){
+            alert('hello ' + event.data.firstName + ' ' + event.data.lastName)
          }
     });
 
