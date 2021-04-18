@@ -4,56 +4,39 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <!-- 1. Подключим библиотеку jQuery (без нее jQuery UI не будет работать) -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<!--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>-->
     <!-- 2. Подключим jQuery UI -->
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet"
           type="text/css"/>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js" type="text/javascript"></script>
 
     <style>
-        .ButtonStyle {
-            background-color: red;
-            cursor: pointer;
-            font-weight: bold;
-            color: white;
-        }
+
     </style>
 </head>
 <body>
 
-<input id="btnClickMe" type="button" value="Click Me" />
-<input id="btnEnableMouseOverEffect" type="button"
-       value="Enable Mouse Over Effect" />
-<input id="btnDisableMouseOverEffect" type="button"
-       value="Disable Mouse Over Effect" />
-<br /><br />
-<div id="divResult"></div>
+<p>Has an attached custom event.</p>
+<button>Trigger custom event</button>
+<span style="display:none;"></span>
 
 <script type="text/javascript">
 
     $(document).ready(function () {
-        $('#btnClickMe').bind('click mouseover mouseout', function (event) {
-            if (event.type == 'click') {
-                $('#divResult').html('Button Clicked at '
-                    + 'X = ' + event.pageX + ' Y = ' + event.pageY);
-            }
-            else if (event.type == 'mouseover') {
-                $(this).addClass('ButtonStyle');
-            }
-            else {
-                $(this).removeClass('ButtonStyle');
-            }
-        });
 
-        $('#btnEnableMouseOverEffect').click(function () {
-            $('#btnClickMe').bind('mouseover', function () {
-                $(this).addClass('ButtonStyle');
-            });
+        $( "p" ).on( "myCustomEvent", function( event, myName ) {
+            $( this ).text( myName + ", hi there!" );
+            $( "span" )
+                .stop()
+                .css( "opacity", 1 )
+                .text( "myName = " + myName )
+                .fadeIn( 30 )
+                .fadeOut( 1000 );
         });
+        $("p").on('click', function () {
+            $(this).trigger('myCustomEvent', ['Jonh'])
+        })
 
-        $('#btnDisableMouseOverEffect').click(function () {
-            $('#btnClickMe').unbind('mouseover');
-        });
     });
 
 </script>
