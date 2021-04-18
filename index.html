@@ -33,7 +33,7 @@
             lastName: 'Kylinyi'
         }, hello)
          function hello(event){
-            alert('hello ' + event.data.firstName + ' ' + event.data.lastName)
+            alert('hello ' + event.data.firstName + (event.data.lastName != null ? ' ' + event.data.lastName : ' '))
          }
     });
 
