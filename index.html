@@ -16,6 +16,10 @@
 </head>
 <body>
 
+<div class="level1">
+    <div class="level2">Level2</div>
+</div>
+
 <input id="btnClickMe" type="button" value="Click Me"/>
 <input id="btnEnableMouseOverEffect" type="button"
        value="Enable Mouse Over Effect"/>
@@ -34,6 +38,9 @@
         function hello(event) {
             alert(`Hello to ${event.data.firstName}`)
         }
+        $('body').on('click', '.level2', function () {
+            alert($(this).toString());
+        })
     });
 
 </script>
