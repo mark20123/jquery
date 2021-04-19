@@ -29,11 +29,11 @@
     $(document).ready(function () {
 
         $('#btnClickMe').on('click',{
-            firstName: 'Vasya'
-        }, hello)
-         function hello(event){
-            alert('hello ' + event.data.firstName + (event.data.lastName != null ? ' ' + event.data.lastName : ' '))
-         }
+            firstName: 'AAAA'
+        },hello);
+        function hello(event) {
+            alert(`Hello to ${event.data.firstName}`)
+        }
     });
 
 </script>
