@@ -16,27 +16,21 @@
 </head>
 <body>
 
-<input type="button" value="Click me">
+<h3>
+    Right click disabled on this page. Try
+    to right click and see what happens
+</h3>
+<div id="divResult"></div>
 
 <script type="text/javascript">
 
     $(document).ready(function () {
-        $('input[value^="Click"]').on('click', function () {
-            alert('dsdds')
-        })
-        $('input[value^="Click"]').on('click', function () {
-            alert('dsdds')
-        })
 
-        let jquerObj = $('input[value^="Click"]');
-        let rawDomElement = jquerObj.get(0);
+     $(this).on('contextmenu', function (e) {
+         e.preventDefault();
 
-        let eventObject = $._data(rawDomElement, 'events');
-        if(eventObject != undefined && eventObject.click != undefined){
-            alert('Events exist')
-        }else{
-            alert('Events don\'t exist')
-        }
+         $('#divResult').append('Right click enabled <br />');
+     })
 
     });
 
