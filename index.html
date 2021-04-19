@@ -16,31 +16,24 @@
 </head>
 <body>
 
-<div class="level1">
-    <div class="level2">Level2</div>
-</div>
 
-<input id="btnClickMe" type="button" value="Click Me"/>
-<input id="btnEnableMouseOverEffect" type="button"
-       value="Enable Mouse Over Effect"/>
-<input id="btnDisableMouseOverEffect" type="button"
-       value="Disable Mouse Over Effect"/>
-<br/><br/>
-<div id="divResult"></div>
+<input type="button" id="btnAdd" value="Add a list item">
+<ul>
+    <li>List item</li>
+    <li>List item</li>
+</ul>
 
 <script type="text/javascript">
 
     $(document).ready(function () {
-
-        $('#btnClickMe').on('click',{
-            firstName: 'AAAA'
-        },hello);
-        function hello(event) {
-            alert(`Hello to ${event.data.firstName}`)
-        }
-        $('body').on('click', '.level2', function () {
-            alert($(this).toString());
+        let count;
+        $('input').on('click', function () {
+            $('ul').prepend('<li>New list item</li>')
         })
+        $('ul').on('click', 'li', function () {
+            $(this).fadeOut(500);
+        })
+
     });
 
 </script>
