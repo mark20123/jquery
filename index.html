@@ -16,27 +16,15 @@
 </head>
 <body>
 
-
-<input type="button" id="btnAdd" value="Add a list item">
-<input type="button" id="btnOff" value="Stop delegation">
-<ul>
-    <li>List item</li>
-    <li>List item</li>
-</ul>
+<input type="button" value="Click me">
 
 <script type="text/javascript">
 
     $(document).ready(function () {
-        let count;
-        $('input[value^="Add"]').on('click', function () {
-            $('ul').prepend('<li>New list item</li>')
-        })
-        $('ul').on('click', 'li', function () {
-            $(this).fadeOut(500);
-        });
-        $('input[value^="Stop"]').click(function () {
-            $('ul').off('click','li');
-        })
+      $(':input').on('click', function () {
+          alert('dsdd')
+          $(this).off('click');
+      })
     });
 
 </script>
