@@ -21,14 +21,23 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-      $(':input').one({
-       mouseover: function () {
-           $(this).css('background-color','yellow')
-       },
-       mouseout: function () {
-           $(this).css('background-color','')
-       }
-      })
+        $('input[value^="Click"]').on('click', function () {
+            alert('dsdds')
+        })
+        $('input[value^="Click"]').on('click', function () {
+            alert('dsdds')
+        })
+
+        let jquerObj = $('input[value^="Click"]');
+        let rawDomElement = jquerObj.get(0);
+
+        let eventObject = $._data(rawDomElement, 'events');
+        if(eventObject != undefined && eventObject.click != undefined){
+            alert('Events exist')
+        }else{
+            alert('Events don\'t exist')
+        }
+
     });
 
 </script>
