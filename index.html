@@ -21,9 +21,13 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-      $(':input').on('click', function () {
-          alert('dsdd')
-          $(this).off('click');
+      $(':input').one({
+       mouseover: function () {
+           $(this).css('background-color','yellow')
+       },
+       mouseout: function () {
+           $(this).css('background-color','')
+       }
       })
     });
 
