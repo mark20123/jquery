@@ -57,7 +57,12 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        let control = true;
+        let control = true,
+            mainImageElement = $('#mainImage'),
+            mainWidth = parseInt(mainImageElement.attr('width')),
+            mainHeight = parseInt(mainImageElement.attr('height')),
+            enLarge = $('#btnEnlarge'),
+            enSmall = $('#btnShrink');
 
         $('#divId').on({
             mouseover:function(){
@@ -144,6 +149,28 @@
 
             }
         }, 'img', false)
+
+        enLarge.on('click', enlarge);
+        enSmall.on('click', shrink);
+
+        function enlarge() {
+            mainWidth += 100;
+            mainHeight += 100;
+
+            mainImageElement.animate({
+                width: mainWidth,
+                height: mainHeight
+            },1000)
+        }
+        function shrink(){
+            mainWidth -= 100;
+            mainHeight -= 100;
+
+            mainImageElement.animate({
+                width: mainWidth,
+                height: mainHeight
+            },1000)
+        }
 
     });
 
