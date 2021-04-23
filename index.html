@@ -38,6 +38,7 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
+        let control = true;
 
         $('#divId img').on({
             mouseover:function(){
@@ -55,10 +56,21 @@
             },
             click: function () {
                 let imageUrl = $(this).attr('src');
+                let full = 360;
+                let empty = 0;
+                let replacer;
+
                 $('#mainImage').fadeOut({
                     start: function () {
+                        control = !control;
+
+                        if(!control){
+                         replacer = full;
+                        }else{
+                            replacer = empty;
+                        }
                         $(this).css({
-                            transform: 'rotate(360deg) scale(0.1)',
+                            transform: `rotate(${replacer}deg) scale(0.1)`,
                             transition: 'all 2s ease'
                         })
                     },
@@ -69,7 +81,7 @@
                 }).fadeIn({
                     start: function () {
                         $(this).css({
-                            transform: 'scale(1)',
+                            transform: `rotate(${replacer}deg) scale(1)`,
                             transition: 'all 2s ease'
                         })
                     },
