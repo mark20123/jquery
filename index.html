@@ -42,13 +42,15 @@
         $('#divId img').on({
             mouseover:function(){
                 $(this).css({
-                    transform:'scale(1.5)',
-                    transition: 'all 1s ease'
+                    transform:'scale(1.2)',
+                    borderColor: 'red',
+                    transition: 'all 0.5s ease'
                 })
             },
             mouseleave: function () {
                 $(this).css({
-                    transform:'scale(1)'
+                    transform:'scale(1)',
+                    borderColor: 'grey'
                 })
             }
         })
