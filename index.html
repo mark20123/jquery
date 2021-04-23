@@ -32,10 +32,15 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-
+        let defaultPosition = 0;
         $('div').scroll(function () {
             let currentScrollPosition = $(this).scrollTop();
-            $('h3').text(currentScrollPosition)
+            if (currentScrollPosition != 0) {
+                $('h3').text('at bottom ')
+            } else {
+                $('h3').text('at top')
+            }
+
         })
 
     });
