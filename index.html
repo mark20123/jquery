@@ -23,7 +23,26 @@
     </style>
 </head>
 <body>
+<label for="selectImgEffect">Select Effect :</label>
+<select id="selectImgEffect">
+    <option value="Fade">Fade</option>
+    <option value="Slide">Slide</option>
+</select>
+<label for="selectImgDuration"> Time in seconds :</label>
+<select id="selectImgDuration">
+    <option value="0.5">0.5</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
 
+</select>
+
+<input type="button" id="btnEnlarge" value="Enlarge">
+<input type="button" id="btnShrink" value="Shrink">
+
+<br/><br />
 <img id="mainImage" style="border:3px solid grey"
      src="pictures/danika-perkinson-QxHJ9lkXYNk-unsplash.jpg" height="500" width="540" />
 <br />
@@ -89,7 +108,7 @@
                 })
 
             }
-        }, 'img')
+        }, 'img', false)
 
     });
 
