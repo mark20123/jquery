@@ -35,12 +35,12 @@
         let defaultPosition = 0;
         $('div').scroll(function () {
             let currentScrollPosition = $(this).scrollTop();
-            if (currentScrollPosition != 0) {
+            if (currentScrollPosition > defaultPosition) {
                 $('h3').text('at bottom ')
             } else {
                 $('h3').text('at top')
             }
-
+           defaultPosition = currentScrollPosition;
         })
 
     });
