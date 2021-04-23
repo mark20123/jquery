@@ -23,30 +23,16 @@
     </style>
 </head>
 <body>
-<label for="selectImgEffect">Select Effect :</label>
-<select id="selectImgEffect">
-    <option value="Fade">Fade</option>
-    <option value="Slide">Slide</option>
-</select>
-<label for="selectImgDuration"> Time in seconds :</label>
-<select id="selectImgDuration">
-    <option value="0.5">0.5</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
 
-</select>
 
-<input type="button" id="btnEnlarge" value="Enlarge">
-<input type="button" id="btnShrink" value="Shrink">
+<input type="button" id="btnStartSlideShow" value="Start Slideshow">
+<input type="button" id="btnStopSlideShow" value="Stop Slideshow">
 
-<br/><br />
+<br /><br />
 <img id="mainImage" style="border:3px solid grey"
      src="pictures/danika-perkinson-QxHJ9lkXYNk-unsplash.jpg" height="500" width="540" />
 <br />
-<div id="divId">
+<div id="divContainer">
     <img class="imgStyle" src="pictures/danika-perkinson-QxHJ9lkXYNk-unsplash.jpg" />
     <img class="imgStyle" src="pictures/johann-siemens-EPy0gBJzzZU-unsplash.jpg" />
     <img class="imgStyle" src="pictures/joshua-hoehne-t-pc0weKoGg-unsplash.jpg" />
@@ -57,120 +43,38 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        let control = true,
-            mainImageElement = $('#mainImage'),
-            mainWidth = parseInt(mainImageElement.attr('width')),
-            mainHeight = parseInt(mainImageElement.attr('height')),
-            enLarge = $('#btnEnlarge'),
-            enSmall = $('#btnShrink');
 
-        $('#divId').on({
-            mouseover:function(){
-                $(this).css({
-                    transform:'scale(1.2)',
-                    borderColor: 'red',
-                    transition: 'all 0.5s ease'
-                })
-            },
-            mouseleave: function () {
-                $(this).css({
-                    transform:'scale(1)',
-                    borderColor: 'grey'
-                })
-            },
-            click: function () {
-                let imageUrl = $(this).attr('src');
-                let full = 360;
-                let empty = 0;
-                let replacer;
+        let imageURLs = new Array(),
+            intervalId,
+            btnStart = $('#btnStartSlideShow'),
+            btnStop = $('#btnStopSlideShow')
 
-                let effect = $('#selectImgEffect').val(),
-                    duration = $('#selectImgDuration').val() * 1000,
-                    mainImg = $('#mainImage');
+        $('#divContainer img').each(function () {
+            imageURLs.push($(this).attr('src'));
+        })
 
-                if(effect === 'Fade'){
-                    mainImg.fadeOut({
-                        start: function () {
-                            control = !control;
-
-                            if(!control){
-                                replacer = full;
-                            }else{
-                                replacer = empty;
-                            }
-                            $(this).css({
-                                transform: `rotate(${replacer}deg) scale(0.1)`,
-                                transition: `all ${duration/1000}s ease`
-                            })
-                        },
-                        complete: function () {
-                            $('#mainImage').attr('src', imageUrl);
-                        },
-                        duration: duration
-                    }).fadeIn({
-                        start: function () {
-                            $(this).css({
-                                transform: `rotate(${replacer}deg) scale(1)`,
-                                transition: `all ${duration/1000}s ease`
-                            })
-                        },
-                        duration: duration
-                    })
-                }else{
-                    mainImg.slideUp({
-                        start: function () {
-                            control = !control;
-
-                            if(!control){
-                                replacer = full;
-                            }else{
-                                replacer = empty;
-                            }
-                            $(this).css({
-                                transform: `rotate(${replacer}deg) scale(0.1)`,
-                                transition: `all 2s ease`
-                            })
-                        },
-                        complete: function () {
-                            $('#mainImage').attr('src', imageUrl);
-                        },
-                        duration: duration
-                    }).slideDown({
-                        start: function () {
-                            $(this).css({
-                                transform: `rotate(${replacer}deg) scale(1)`,
-                                transition: 'all 2s ease'
-                            })
-                        },
-                        duration: duration
-                    })
-                }
-
-
+        function setImage() {
+            let mainImageElement = $('#mainImage'),
+                currentImageUrl = mainImageElement.attr('src'),
+                currentImageIndex = $.inArray(currentImageUrl, imageURLs);
+            if (currentImageIndex === (imageURLs.length - 1)) {
+                currentImageIndex = -1;
             }
-        }, 'img', false)
 
-        enLarge.on('click', enlarge);
-        enSmall.on('click', shrink);
-
-        function enlarge() {
-            mainWidth += 100;
-            mainHeight += 100;
-
-            mainImageElement.animate({
-                width: mainWidth,
-                height: mainHeight
-            },1000)
+            mainImageElement.attr('src', imageURLs[currentImageIndex + 1])
         }
-        function shrink(){
-            mainWidth -= 100;
-            mainHeight -= 100;
 
-            mainImageElement.animate({
-                width: mainWidth,
-                height: mainHeight
-            },1000)
-        }
+        btnStart.click(function () {
+           intervalId = setInterval(setImage, 1500);
+           $(this).attr('disabled','disabled');
+           btnStop.removeAttr('disabled');
+        })
+
+        btnStop.click(function () {
+            clearInterval(intervalId);
+            $(this).attr('disabled','disabled');
+            btnStart.removeAttr('disabled');
+        }).attr('disabled','disabled');
 
     });
 
