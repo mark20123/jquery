@@ -79,33 +79,68 @@
                 let empty = 0;
                 let replacer;
 
-                $('#mainImage').fadeOut({
-                    start: function () {
-                        control = !control;
+                let effect = $('#selectImgEffect').val(),
+                    duration = $('#selectImgDuration').val() * 1000,
+                    mainImg = $('#mainImage');
 
-                        if(!control){
-                         replacer = full;
-                        }else{
-                            replacer = empty;
-                        }
-                        $(this).css({
-                            transform: `rotate(${replacer}deg) scale(0.1)`,
-                            transition: 'all 2s ease'
-                        })
-                    },
-                    complete: function () {
-                        $('#mainImage').attr('src', imageUrl);
-                    },
-                    duration: 2000
-                }).fadeIn({
-                    start: function () {
-                        $(this).css({
-                            transform: `rotate(${replacer}deg) scale(1)`,
-                            transition: 'all 2s ease'
-                        })
-                    },
-                    duration: 2000
-                })
+                if(effect === 'Fade'){
+                    mainImg.fadeOut({
+                        start: function () {
+                            control = !control;
+
+                            if(!control){
+                                replacer = full;
+                            }else{
+                                replacer = empty;
+                            }
+                            $(this).css({
+                                transform: `rotate(${replacer}deg) scale(0.1)`,
+                                transition: `all ${duration/1000}s ease`
+                            })
+                        },
+                        complete: function () {
+                            $('#mainImage').attr('src', imageUrl);
+                        },
+                        duration: duration
+                    }).fadeIn({
+                        start: function () {
+                            $(this).css({
+                                transform: `rotate(${replacer}deg) scale(1)`,
+                                transition: `all ${duration/1000}s ease`
+                            })
+                        },
+                        duration: duration
+                    })
+                }else{
+                    mainImg.slideUp({
+                        start: function () {
+                            control = !control;
+
+                            if(!control){
+                                replacer = full;
+                            }else{
+                                replacer = empty;
+                            }
+                            $(this).css({
+                                transform: `rotate(${replacer}deg) scale(0.1)`,
+                                transition: `all 2s ease`
+                            })
+                        },
+                        complete: function () {
+                            $('#mainImage').attr('src', imageUrl);
+                        },
+                        duration: duration
+                    }).slideDown({
+                        start: function () {
+                            $(this).css({
+                                transform: `rotate(${replacer}deg) scale(1)`,
+                                transition: 'all 2s ease'
+                            })
+                        },
+                        duration: duration
+                    })
+                }
+
 
             }
         }, 'img', false)
