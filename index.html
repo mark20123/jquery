@@ -27,14 +27,15 @@
     completion.
 </div>
 <br/>
-<h3 style="display:none; color:red">Scroll event handled</h3>
+<h3 style="color:red">Scroll event handled <span>0</span> time(s)</h3>
 
 <script type="text/javascript">
 
     $(document).ready(function () {
-
+        let count = 0;
      $('div').scroll(function () {
-         $('h3').css('display','inline').fadeOut('slow');
+         count++;
+         $('span').text(count);
      })
 
     });
