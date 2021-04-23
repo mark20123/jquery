@@ -11,36 +11,46 @@
     <script src="node_modules/jquery/dist/jquery.js" type="text/javascript"></script>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
 
+        .imgStyle {
+            width: 100px;
+            height: 100px;
+            border: 3px solid grey;
+        }
     </style>
 </head>
 <body>
 
-<div style="width:300px; height:200px; border:1px solid black; overflow:scroll">
-    PRAGIM Specialty in training arena unlike other training institutions. Training delivered by real time software
-    experts having more than 10 years of experience. Interview questions and real time scenarios discussion on topics
-    covered for the day. Real time projects discussion relating to the possible interview questions. Trainees can attend
-    training and use lab until you get a job. Resume preparation and mock up interviews. 100% placement assistance. 24
-    hours lab facility. PRAGIM Technologies offers professional real time projects for students in their final semester.
-    Course completion and project completion certificates will also be provided upon successful completion of the
-    course. We have partnered with major multinational companies to place freshers with our clients on their course
-    completion.
+<img id="mainImage" style="border:3px solid grey"
+     src="pictures/danika-perkinson-QxHJ9lkXYNk-unsplash.jpg" height="500" width="540" />
+<br />
+<div id="divId">
+    <img class="imgStyle" src="pictures/danika-perkinson-QxHJ9lkXYNk-unsplash.jpg" />
+    <img class="imgStyle" src="pictures/johann-siemens-EPy0gBJzzZU-unsplash.jpg" />
+    <img class="imgStyle" src="pictures/joshua-hoehne-t-pc0weKoGg-unsplash.jpg" />
+    <img class="imgStyle" src="pictures/kris-atomic-Z5dKUnRJIiY-unsplash.jpg" />
+    <img class="imgStyle" src="pictures/toni-lluch-JoRoy500nCc-unsplash.jpg" />
 </div>
-<br/>
-<h3 style="color:red"></h3>
 
 <script type="text/javascript">
 
     $(document).ready(function () {
-        let defaultPosition = 0;
-        $('div').scroll(function () {
-            let currentScrollPosition = $(this).scrollTop();
-            if (currentScrollPosition > defaultPosition) {
-                $('h3').text('at bottom ')
-            } else {
-                $('h3').text('at top')
+
+        $('#divId img').on({
+            mouseover:function(){
+                $(this).css({
+                    transform:'scale(1.5)',
+                    transition: 'all 1s ease'
+                })
+            },
+            mouseleave: function () {
+                $(this).css({
+                    transform:'scale(1)'
+                })
             }
-           defaultPosition = currentScrollPosition;
         })
 
     });
