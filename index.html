@@ -55,7 +55,16 @@
             },
             click: function () {
                 let imageUrl = $(this).attr('src');
-                $('#mainImage').attr('src', imageUrl);
+                $('#mainImage').fadeOut({
+                    start: function () {
+                        console.log('start')
+                    },
+                    complete: function () {
+                        $('#mainImage').attr('src', imageUrl);
+                    },
+                    duration: 1000
+                }).fadeIn(1000)
+
             }
         })
 
