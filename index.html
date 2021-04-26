@@ -11,65 +11,26 @@
     <script src="node_modules/jquery/dist/jquery.js" type="text/javascript"></script>
 
     <style>
-        /** {*/
-        /*    box-sizing: border-box;*/
-        /*}*/
-        .myDivClass {
-            width: 150px;
-            padding: 5px;
-            font-size: 18px;
-            border: 1px solid black;
-            opacity: .4;
-            background-color: red;
-            color: white;
+        * {
+            box-sizing: border-box;
         }
+
 
     </style>
 </head>
 <body>
 
-Select Percentage :
-<select id="ddlPercentage">
-    <option value="10">10</option>
-    <option value="20">20</option>
-    <option value="30">30</option>
-    <option value="40">40</option>
-    <option value="50">50</option>
-    <option value="60">60</option>
-    <option value="70">70</option>
-    <option value="80">80</option>
-    <option value="90">90</option>
-    <option value="100">100</option>
-</select>
-<input type="button" id="myButton" value="Start Animation"/>
-<br/><br/>
-<div id="outerDiv" style="background-color:#EEEEEE;
-         height:20px; width:500px; padding:5px">
-    <div id="innerDiv" style="background-color:red; height:19px;
-             width:0px; color:white; text-align:center">
-    </div>
-</div>
+Password :
+<input type="password" id="txtPassword" />
+<input type="checkbox" id="cbShowPassword" />Show password
 
 <script type="text/javascript">
 
     $(document).ready(function () {
 
-        $('#myButton').click(function () {
-            animateProgressBar($('#ddlPercentage').val())
-        })
-
-        function animateProgressBar(currentPercentage) {
-
-            $('#innerDiv').animate({
-                'width': (500 * currentPercentage) / 100
-            }, {
-                duration: 2000,
-                step: function (now, tween) {
-                    $('#innerDiv').text(Math.ceil((now / 500) * 100) + ' %')
-                }
-            });
-
-        }
+        $('#cbShowPassword').click(function () {
+            $('#txtPassword').attr('type', $(this).is(':checked') ? 'text' : 'password');
+        });
 
         });
 
