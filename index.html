@@ -58,13 +58,17 @@ Select Percentage :
             animateProgressBar($('#ddlPercentage').val())
         })
 
+        let initNumber;
+
         function animateProgressBar(percentageCompleted) {
 
             $('#innerDiv').animate({
                 'width': (500 * percentageCompleted) / 100
             }, 3000);
 
-            $({counter : 1}).animate({counter : percentageCompleted}, {
+           initNumber = (initNumber === 'undefined' || initNumber < 0) ? 1 : percentageCompleted;
+
+            $({counter : initNumber}).animate({counter : percentageCompleted}, {
                 duration: 3000,
                 step: function () {
                     $('#innerDiv').text(Math.ceil(this.counter) + ' %')
