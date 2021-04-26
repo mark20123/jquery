@@ -54,29 +54,20 @@ Select Percentage :
 
     $(document).ready(function () {
 
-        let previousPercentage = 0,
-            currentPercentage = 0
-
         $('#myButton').click(function () {
-            previousPercentage = currentPercentage;
-            currentPercentage = $('#ddlPercentage').val()
-            animateProgressBar(previousPercentage, currentPercentage)
+            animateProgressBar($('#ddlPercentage').val())
         })
 
-        function animateProgressBar(previousPercentage, currentPercentage) {
+        function animateProgressBar(currentPercentage) {
 
             $('#innerDiv').animate({
                 'width': (500 * currentPercentage) / 100
-            }, 3000);
-
-            if(previousPercentage > currentPercentage) currentPercentage -=1;
-
-            $({counter : previousPercentage}).animate({counter : currentPercentage}, {
-                duration: 3000,
-                step: function () {
-                    $('#innerDiv').text(Math.ceil(this.counter) + ' %')
+            }, {
+                duration: 2000,
+                step: function (now, tween) {
+                    $('#innerDiv').text(Math.ceil((now / 500) * 100) + ' %')
                 }
-            })
+            });
 
         }
 
