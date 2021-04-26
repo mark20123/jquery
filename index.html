@@ -64,7 +64,12 @@ Select Percentage :
                 'width': (500 * percentageCompleted) / 100
             }, 3000);
 
-
+            $({counter : 1}).animate({counter : percentageCompleted}, {
+                duration: 3000,
+                step: function () {
+                    $('#innerDiv').text(this.counter + ' %')
+                }
+            })
 
         }
 
