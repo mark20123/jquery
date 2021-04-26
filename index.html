@@ -69,6 +69,8 @@ Select Percentage :
                 'width': (500 * currentPercentage) / 100
             }, 3000);
 
+            if(previousPercentage > currentPercentage) currentPercentage -=1;
+
             $({counter : previousPercentage}).animate({counter : currentPercentage}, {
                 duration: 3000,
                 step: function () {
