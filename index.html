@@ -29,6 +29,7 @@
 <body>
 
 <input type="button" id="myButton" value="Start Animation" />
+<input id="chkBox" type="checkbox"  /> Turn off animations
 <br /><br />
 <div id="myDiv1" class="myDivClass">
     jQuery animations
@@ -43,16 +44,14 @@
     $(document).ready(function () {
 
         $('#myButton').click(function () {
+            jQuery.fx.off = $('#chkBox').is(':checked');
+
             $('#myDiv1')
                 .animate({ 'width': 500 }, 1500)
-                .queue('fx',function () {
-                    console.log($(this).queue('fx').length);
-                    $(this).dequeue();
-                })
                 .animate({ 'padding': 20 }, 1500)
                 .animate({ 'font-size': 50 }, 1500)
                 .animate({ 'border-width': 10 }, 1500)
-                .animate({ 'opacity': 1 }, 1500);
+                .animate({ 'opacity': 1 }, 1500)
 
             $('#myDiv2')
                 .animate({ 'width': 500 }, 1500)
