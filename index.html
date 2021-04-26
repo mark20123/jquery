@@ -14,29 +14,51 @@
         * {
             box-sizing: border-box;
         }
+        .myDivClass {
+            width: 150px;
+            padding: 5px;
+            font-size: 18px;
+            border: 1px solid black;
+            opacity: .4;
+            background-color: red;
+            color: white;
+        }
 
     </style>
 </head>
 <body>
 
-<img style="position: absolute" height="100" width="100" src="pictures/toni-lluch-JoRoy500nCc-unsplash.jpg" alt="tony" title="picture">
+<input type="button" id="myButton" value="Start Animation" />
+<br /><br />
+<div id="myDiv1" class="myDivClass">
+    jQuery animations
+</div>
+<br />
+<div id="myDiv2" class="myDivClass">
+    Pragim Tech
+</div>
 
 <script type="text/javascript">
 
     $(document).ready(function () {
 
-        $('img').on('click', function () {
-            $(this)
-                  .animate({'left': 300},1000)
-                  .animate({'top': 300},200)
-                  .animate({'left': 10},600)
-                  .animate({'top': 10},200)
-        })
+        $('#myButton').click(function () {
+            $('#myDiv1')
+                .animate({ 'width': 500 }, 1500)
+                .animate({ 'padding': 20 }, 1500)
+                .animate({ 'font-size': 50 }, 1500)
+                .animate({ 'border-width': 10 }, 1500)
+                .animate({ 'opacity': 1 }, 1500);
 
+            $('#myDiv2')
+                .animate({ 'width': 500 }, 1500)
+                .animate({ 'padding': 20 }, 1500)
+                .animate({ 'font-size': 50 }, 1500)
+                .animate({ 'border-width': 10 }, 1500)
+                .animate({ 'opacity': 1 }, 1500);
+        });
 
-
-
-    });
+        });
 
 </script>
 
