@@ -14,36 +14,67 @@
         * {
             box-sizing: border-box;
         }
-
+        .divClass {
+            font-size: 16px;
+            background-color: #E3E3E3;
+            width: 500px;
+            padding: 5px;
+        }
 
     </style>
 </head>
 <body>
 
-Password :
-<input type="password" id="txtPassword"/>
-<input type="checkbox" id="cbShowPassword"/>Show password
+Font-Size:
+<a id="linkIncrease" href="#">Increase</a>
+<a id="linkDecrease" href="#">Decrease</a>
+<a id="linkReset" href="#">Reset</a>
+<br /><br />
+<div id="divContent" class="divClass">
+    <b>jQuery Tutorial</b>
+    <ul>
+        <li>What is jQuery</li>
+        <li>What is $(document).ready(function() in jquery</li>
+        <li>Benefits of using CDN</li>
+        <li>#id selector</li>
+        <li>Element Selector</li>
+        <li>class selector</li>
+        <li>attribute selector</li>
+        <li>attribute value selectors</li>
+        <li>case insensitive attribute selector</li>
+        <li>jQuery input vs :input</li>
+    </ul>
+</div>
 
 <script type="text/javascript">
 
     $(document).ready(function () {
 
-        $(`#cbShowPassword`).click(function () {
-            let currentPasswordField, currentPassword;
-
-            currentPasswordField = $('#txtPassword');
-            currentPassword = currentPasswordField.val();
-            currentPasswordField.remove()
-
-            if ($(this).is(':checked')) {
-                $(this).before('<input type="text" id="txtPassword" value="'
-                    + currentPassword + '">');
-            }
-            else {
-                $(this).before('<input type="password" id="txtPassword" value="'
-                    + currentPassword + '">');
-            }
+        $('#linkIncrease').click(function () {
+            modifyFontSize('increase');
         });
+
+        $('#linkDecrease').click(function () {
+            modifyFontSize('decrease');
+        });
+
+        $('#linkReset').click(function () {
+            modifyFontSize('reset');
+        })
+
+        function modifyFontSize(flag) {
+            var divElement = $('#divContent');
+            var currentFontSize = parseInt(divElement.css('font-size'));
+
+            if (flag == 'increase')
+                currentFontSize += 3;
+            else if (flag == 'decrease')
+                currentFontSize -= 3;
+            else
+                currentFontSize = 16;
+
+            divElement.css('font-size', currentFontSize);
+        }
 
         });
 
