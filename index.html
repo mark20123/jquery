@@ -46,7 +46,8 @@
             $('#myDiv1')
                 .animate({ 'width': 500 }, 1500)
                 .queue('fx',function () {
-                    console.log($(this).queue('fx').length)
+                    console.log($(this).queue('fx').length);
+                    $(this).dequeue();
                 })
                 .animate({ 'padding': 20 }, 1500)
                 .animate({ 'font-size': 50 }, 1500)
