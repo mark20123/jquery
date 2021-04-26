@@ -15,69 +15,34 @@
             box-sizing: border-box;
         }
 
-        .imgStyle {
-            width: 100px;
-            height: 100px;
-            border: 3px solid grey;
-        }
     </style>
 </head>
 <body>
 
-
-<input type="button" id="btnStartSlideShow" value="Start Slideshow">
-<input type="button" id="btnStopSlideShow" value="Stop Slideshow">
-
+<input type="button" id="myButton" value="Animate" />
 <br /><br />
-<img id="mainImage" style="border:3px solid grey"
-     src="pictures/danika-perkinson-QxHJ9lkXYNk-unsplash.jpg" height="500" width="540" />
-<br />
-<div id="divContainer">
-    <img class="imgStyle" src="pictures/danika-perkinson-QxHJ9lkXYNk-unsplash.jpg" />
-    <img class="imgStyle" src="pictures/johann-siemens-EPy0gBJzzZU-unsplash.jpg" />
-    <img class="imgStyle" src="pictures/joshua-hoehne-t-pc0weKoGg-unsplash.jpg" />
-    <img class="imgStyle" src="pictures/kris-atomic-Z5dKUnRJIiY-unsplash.jpg" />
-    <img class="imgStyle" src="pictures/toni-lluch-JoRoy500nCc-unsplash.jpg" />
+<div id="myDiv">
+    jQuery animate function
 </div>
 
 <script type="text/javascript">
 
     $(document).ready(function () {
 
-        let imageURLs, intervalId, btnStart, btnStop;
-
-        imageURLs = [];
-        btnStart = $('#btnStartSlideShow');
-        btnStop = $('#btnStopSlideShow');
-
-        $(`#divContainer img`).each(function () {
-            imageURLs.push($(this).attr('src'));
+        $('#myButton').click(function () {
+           $('#myDiv').animate({
+               'font-size': '5rem'
+           },
+               {
+                   duration: 6000,
+                   start: function () {
+                       console.log('start')
+                   },
+                   complete: function () {
+                       console.log('finished')
+                   }
+               })
         })
-
-        function setImage() {
-            let mainImageElement, currentImageUrl, currentImageIndex;
-
-            mainImageElement = $('#mainImage');
-            currentImageUrl = mainImageElement.attr('src');
-            currentImageIndex = $.inArray(currentImageUrl, imageURLs);
-            if (currentImageIndex === (imageURLs.length - 1)) {
-                currentImageIndex = -1;
-            }
-
-            mainImageElement.attr('src', imageURLs[currentImageIndex + 1])
-        }
-
-        btnStart.click(function () {
-           intervalId = setInterval(setImage, 1500);
-           $(this).attr('disabled','disabled');
-           btnStop.removeAttr('disabled');
-        })
-
-        btnStop.click(function () {
-            clearInterval(intervalId);
-            $(this).attr('disabled','disabled');
-            btnStart.removeAttr('disabled');
-        }).attr('disabled','disabled');
 
     });
 
