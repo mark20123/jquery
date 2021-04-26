@@ -11,9 +11,9 @@
     <script src="node_modules/jquery/dist/jquery.js" type="text/javascript"></script>
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        /** {*/
+        /*    box-sizing: border-box;*/
+        /*}*/
         .myDivClass {
             width: 150px;
             padding: 5px;
@@ -28,15 +28,26 @@
 </head>
 <body>
 
+Select Percentage :
+<select id="ddlPercentage">
+    <option value="10">10</option>
+    <option value="20">20</option>
+    <option value="30">30</option>
+    <option value="40">40</option>
+    <option value="50">50</option>
+    <option value="60">60</option>
+    <option value="70">70</option>
+    <option value="80">80</option>
+    <option value="90">90</option>
+    <option value="100">100</option>
+</select>
 <input type="button" id="myButton" value="Start Animation" />
-<input id="chkBox" type="checkbox"  /> Turn off animations
 <br /><br />
-<div id="myDiv1" class="myDivClass">
-    jQuery animations
-</div>
-<br />
-<div id="myDiv2" class="myDivClass">
-    Pragim Tech
+<div id="outerDiv" style="background-color:#EEEEEE;
+         height:20px; width:500px; padding:5px">
+    <div id="innerDiv" style="background-color:red; height:19px;
+             width:0px; color:white; text-align:center">
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -44,22 +55,18 @@
     $(document).ready(function () {
 
         $('#myButton').click(function () {
-            jQuery.fx.off = $('#chkBox').is(':checked');
+            animateProgressBar($('#ddlPercentage').val())
+        })
 
-            $('#myDiv1')
-                .animate({ 'width': 500 }, 1500)
-                .animate({ 'padding': 20 }, 1500)
-                .animate({ 'font-size': 50 }, 1500)
-                .animate({ 'border-width': 10 }, 1500)
-                .animate({ 'opacity': 1 }, 1500)
+        function animateProgressBar(percentageCompleted) {
 
-            $('#myDiv2')
-                .animate({ 'width': 500 }, 1500)
-                .animate({ 'padding': 20 }, 1500)
-                .animate({ 'font-size': 50 }, 1500)
-                .animate({ 'border-width': 10 }, 1500)
-                .animate({ 'opacity': 1 }, 1500);
-        });
+            $('#innerDiv').animate({
+                'width': (500 * percentageCompleted) / 100
+            }, 3000);
+
+
+
+        }
 
         });
 
