@@ -19,30 +19,31 @@
 </head>
 <body>
 
-<input type="button" id="myButton" value="Animate" />
-<br /><br />
-<div id="myDiv">
-    jQuery animate function
-</div>
+<img src="pictures/toni-lluch-JoRoy500nCc-unsplash.jpg" alt="tony" title="picture">
 
 <script type="text/javascript">
 
     $(document).ready(function () {
 
-        $('#myButton').click(function () {
-           $('#myDiv').animate({
-               'font-size': '5rem'
-           },
-               {
-                   duration: 6000,
-                   start: function () {
-                       console.log('start')
-                   },
-                   complete: function () {
-                       console.log('finished')
-                   }
-               })
+        $('img').on({
+            mouseover: function () {
+                $(this).animate({
+                    'height': 400,
+                    'width': 400
+                },3000,'linear',animateCompleted)
+            },
+            mouseout: function () {
+                $(this).animate({
+                    'height': 100,
+                    'width': 100
+                },3000)
+            }
         })
+
+        function animateCompleted() {
+            alert('Completed')
+        }
+
 
     });
 
