@@ -44,19 +44,22 @@
 
     $(document).ready(function () {
 
-        let imageURLs = new Array(),
-            intervalId,
-            btnStart = $('#btnStartSlideShow'),
-            btnStop = $('#btnStopSlideShow')
+        let imageURLs, intervalId, btnStart, btnStop;
 
-        $('#divContainer img').each(function () {
+        imageURLs = [];
+        btnStart = $('#btnStartSlideShow');
+        btnStop = $('#btnStopSlideShow');
+
+        $(`#divContainer img`).each(function () {
             imageURLs.push($(this).attr('src'));
         })
 
         function setImage() {
-            let mainImageElement = $('#mainImage'),
-                currentImageUrl = mainImageElement.attr('src'),
-                currentImageIndex = $.inArray(currentImageUrl, imageURLs);
+            let mainImageElement, currentImageUrl, currentImageIndex;
+
+            mainImageElement = $('#mainImage');
+            currentImageUrl = mainImageElement.attr('src');
+            currentImageIndex = $.inArray(currentImageUrl, imageURLs);
             if (currentImageIndex === (imageURLs.length - 1)) {
                 currentImageIndex = -1;
             }
