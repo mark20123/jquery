@@ -44,26 +44,21 @@
 
         $('#myButton').click(function () {
             $('#myDiv1')
-                .animate({ 'width': 500 },
-                    {
-                        queue: false
-                    })
-                .animate({ 'padding': 20 },
-                    {
-                        queue: false
-                    })
-                .animate({ 'font-size': 50 },
-                    {
-                        queue: false
-                    })
-                .animate({ 'border-width': 10 },
-                    {
-                        queue: false
-                    })
-                .animate({ 'opacity': 1 },
-                    {
-                        queue: false
-                    });
+                .animate({ 'width': 500 }, 1500)
+                .queue('fx',function () {
+                    console.log($(this).queue('fx').length)
+                })
+                .animate({ 'padding': 20 }, 1500)
+                .animate({ 'font-size': 50 }, 1500)
+                .animate({ 'border-width': 10 }, 1500)
+                .animate({ 'opacity': 1 }, 1500);
+
+            $('#myDiv2')
+                .animate({ 'width': 500 }, 1500)
+                .animate({ 'padding': 20 }, 1500)
+                .animate({ 'font-size': 50 }, 1500)
+                .animate({ 'border-width': 10 }, 1500)
+                .animate({ 'opacity': 1 }, 1500);
         });
 
         });
