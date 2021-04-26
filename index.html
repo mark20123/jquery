@@ -67,7 +67,7 @@ Select Percentage :
             $({counter : 1}).animate({counter : percentageCompleted}, {
                 duration: 3000,
                 step: function () {
-                    $('#innerDiv').text(this.counter + ' %')
+                    $('#innerDiv').text(Math.ceil(this.counter) + ' %')
                 }
             })
 
