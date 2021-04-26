@@ -19,30 +19,21 @@
 </head>
 <body>
 
-<img src="pictures/toni-lluch-JoRoy500nCc-unsplash.jpg" alt="tony" title="picture">
+<img style="position: absolute" height="100" width="100" src="pictures/toni-lluch-JoRoy500nCc-unsplash.jpg" alt="tony" title="picture">
 
 <script type="text/javascript">
 
     $(document).ready(function () {
 
-        $('img').on({
-            mouseover: function () {
-                $(this).animate({
-                    'height': 400,
-                    'width': 400
-                },3000,'linear',animateCompleted)
-            },
-            mouseout: function () {
-                $(this).animate({
-                    'height': 100,
-                    'width': 100
-                },3000)
-            }
+        $('img').on('click', function () {
+            $(this)
+                  .animate({'left': 300},1000)
+                  .animate({'top': 300},200)
+                  .animate({'left': 10},600)
+                  .animate({'top': 10},200)
         })
 
-        function animateCompleted() {
-            alert('Completed')
-        }
+
 
 
     });
